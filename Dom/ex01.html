@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01</title>
+</head>
+
+<body>
+    <header>
+        <h1> Lista de tarefas </h1>
+        <input type="Digite ai" id="tarefa" placeholder="Digite uma tarefa">
+        <button onclick="adicionarTarefa()">Adicionar </button>
+        <ul id="Lista_Tarefas">
+
+        </ul>
+
+
+    </header>
+    <main></main>
+    <footer></footer>
+
+</body>
+<script>
+
+    function adicionarTarefa() {
+        valorInput = document.getElementById("tarefa").value;
+
+        if (valorInput === "" && valorInput === " ") {
+            alert("O cabaço, Digite primeiro alguma coisa antes de clicar no botão animal!, sem mãe do krai");
+        }
+
+        else {
+            ItemLista = document.createElement("li");
+            ItemLista.innerText = valorInput;
+            document.getElementById("Lista_Tarefas").appendChild(ItemLista);
+
+
+        }
+
+
+        let botãoExcluir = document.createElement("button");
+        botãoExcluir.innerText = "Remover item";
+
+        ItemLista.appendChild(botãoExcluir);
+        botãoExcluir.onclick = function () {
+            ItemLista.remove();
+        }
+        document.getElementById("tarefa").value = "";
+    }
+
+//function/=> : é pra dar  uma fução  neste caso o "remove" que é para remover  
+
+</script>
+
+</html>

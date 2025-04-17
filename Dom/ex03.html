@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras</title>
+</head>
+
+<body>
+    <header>
+        <h1>Camisetas</h1>
+    </header>
+
+    <main>
+        <p>
+            Camiseta Preta - R$50 
+            <button onclick="adicionarAoCarrinho('Camiseta Preta', 50)">Adicionar</button>
+        </p>
+
+        <p>
+            Camiseta Branca - R$798
+            <button onclick="adicionarAoCarrinho('Camiseta Branca', 798)">Adicionar</button>
+        </p>
+
+        <h2>Carrinho:</h2>
+        <ul id="lista-carrinho"></ul>
+        <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        let total = 0;
+
+        function adicionarAoCarrinho(nome, preco) {
+            let lista = document.getElementById('lista-carrinho');
+            let item = document.createElement('li');
+            item.textContent = `${nome} - R$ ${preco.toFixed(2)}`;
+
+            lista.appendChild(item);
+
+            total += preco;
+            document.getElementById('total').textContent = total.toFixed(2);
+            
+            let botaoExcluir = document.createElement("button");
+            botaoExcluir.innerText = "Excluir";
+            item.appendChild(botaoExcluir);
+            
+            botaoExcluir.onclick = () => {
+                item.remove();
+                total -= preco;
+                document.getElementById('total').textContent = total.toFixed(2);
+
+            }
+        }
+    </script>
+</body>
+
+
+</html>
